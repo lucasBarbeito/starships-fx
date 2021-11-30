@@ -2,6 +2,8 @@ package edu.austral.dissis.starships.game;
 
 import javafx.animation.AnimationTimer;
 
+import java.io.IOException;
+
 public abstract class GameTimer extends AnimationTimer {
 
     private double lastTimeInSeconds = 0;
@@ -16,5 +18,5 @@ public abstract class GameTimer extends AnimationTimer {
         nextFrame(secondsSinceLastFrame);
     }
 
-    public abstract void nextFrame(double secondsSinceLastFrame);
+    public abstract void nextFrame(double secondsSinceLastFrame) ;
 }

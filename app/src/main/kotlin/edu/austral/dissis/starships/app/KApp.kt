@@ -6,5 +6,5 @@ package edu.austral.dissis.starships.app
 import javafx.application.Application.launch
 
 fun main() {
-    launch(Game::class.java)
+    launch(KGame::class.java)
 }

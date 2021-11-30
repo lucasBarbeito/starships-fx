@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.util.Optional;
 
 public abstract class GameApplication extends Application implements RootSetter {
@@ -13,7 +14,7 @@ public abstract class GameApplication extends Application implements RootSetter 
     private final KeyTracker keyTracker = new KeyTracker();
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
         final GameContext context = new GameContextImpl(keyTracker);
         final WindowSettings settings = setupWindow();
         final Parent pane = initRoot(context);
@@ -49,7 +50,7 @@ public abstract class GameApplication extends Application implements RootSetter 
     @NotNull
     public abstract WindowSettings setupWindow();
 
-    public abstract Parent initRoot(@NotNull GameContext context);
+    public abstract Parent initRoot(@NotNull GameContext context) throws IOException;
 
     public void setRoot(@NotNull Parent parent) {
         maybeScene.ifPresent(scene -> scene.setRoot(parent));

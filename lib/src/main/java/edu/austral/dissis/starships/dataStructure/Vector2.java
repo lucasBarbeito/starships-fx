@@ -1,4 +1,4 @@
-package edu.austral.dissis.starships.vector;
+package edu.austral.dissis.starships.dataStructure;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -8,7 +8,7 @@ public class Vector2 {
     private final double x;
     private final double y;
 
-    private Vector2(double x, double y) {
+    public Vector2(double x, double y) {
         this.x = x;
         this.y = y;
     }

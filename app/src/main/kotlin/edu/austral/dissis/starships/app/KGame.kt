@@ -11,17 +11,17 @@ import javafx.scene.layout.StackPane
 import javafx.scene.text.Text
 import kotlin.collections.*
 
-class Game : GameApplication() {
+class KGame : GameApplication() {
     override fun setupWindow(): WindowSettings {
         return WindowSettings.fromTitle("Starships!")
     }
 
     override fun initRoot(context: GameContext): Parent {
-        return GameManager(this, context).init()
+        return KGameManager(this, context).init()
     }
 }
 
-class GameManager(private val rootSetter: RootSetter, private val context: GameContext) {
+class KGameManager(private val rootSetter: RootSetter, private val context: GameContext) {
     private var isIntro = true
 
     fun init(): Parent {
@@ -56,14 +56,14 @@ class GameManager(private val rootSetter: RootSetter, private val context: GameC
 
         val pane = Pane(imageView)
 
-        MainTimer(imageView, context.keyTracker).start()
+        KMainTimer(imageView, context.keyTracker).start()
 
         return pane
     }
 
 }
 
-class MainTimer(private val ship: Node, private val keyTracker: KeyTracker) : GameTimer() {
+class KMainTimer(private val ship: Node, private val keyTracker: KeyTracker) : GameTimer() {
 
 
     override fun nextFrame(secondsSinceLastFrame: Double) {
@@ -73,7 +73,8 @@ class MainTimer(private val ship: Node, private val keyTracker: KeyTracker) : Ga
     private fun updatePosition(secondsSinceLastFrame: Double) {
         val movement = 50 * secondsSinceLastFrame
 
-        keyTracker.keySet.forEach { keyCode ->
+        keyTracker.keySet.forEach {
+            keyCode ->
             when (keyCode) {
                 KeyCode.UP -> ship.layoutY = ship.layoutY - movement
                 KeyCode.DOWN -> ship.layoutY = ship.layoutY + movement

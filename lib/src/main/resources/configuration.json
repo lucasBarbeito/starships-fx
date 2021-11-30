@@ -1,0 +1,22 @@
+[
+	{
+		"moveForwardKey": "W",
+		"moveBackKey": "S",
+		"rotateRightKey": "D",
+		"rotateLeftKey": "A",
+		"shootKey": "Q",
+		"changeWeapon": "E",
+		"startingLives": 3,
+		"spaceshipNumber": 1
+	},
+	{
+		"moveForwardKey": "I",
+		"moveBackKey": "K",
+		"rotateRightKey": "J",
+		"rotateLeftKey": "L",
+		"shootKey": "U",
+		"changeWeapon": "O",
+		"startingLives": 3,
+		"spaceshipNumber": 2
+	}
+]
