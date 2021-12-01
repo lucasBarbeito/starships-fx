@@ -7,13 +7,14 @@ import edu.austral.dissis.starships.game.AsteroidFactory;
 import edu.austral.dissis.starships.game.KeyTracker;
 import edu.austral.dissis.starships.model.Asteroid;
 import edu.austral.dissis.starships.view.AsteroidView;
+import edu.austral.dissis.starships.visitor.SaveDataVisitor;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class GameManager {
+public class MyGameManager {
 
 //    private ShipController shipController;
     private GameObjectController gameObjectController;
@@ -21,7 +22,7 @@ public class GameManager {
     AsteroidFactory asteroidFactory;
     CollisionEngine collisionEngine;
 
-    public GameManager(Pane pane, GameObjectController gameObjectController){
+    public MyGameManager(Pane pane, GameObjectController gameObjectController){
         this.pane = pane;
 //        this.shipController = shipController;
         this.gameObjectController = gameObjectController;
@@ -45,10 +46,6 @@ public class GameManager {
 
         handleCollisions(getGameColliders());
         gameObjectController.update(secondsSinceLastFrame,pane,keyTracker);
-//        System.out.println("Player 1 life: " + ((Ship) gameObjectController.getFirst().getModel()).getPlayer().getCurrentLives());
-//        System.out.println("Player 1 score: " + ((Ship) gameObjectController.getFirst().getModel()).getPlayer().getScore());
-//        System.out.println("Player 2 life: " + ((Ship) gameObjectController.getSecond().getModel()).getPlayer().getCurrentLives());
-//        System.out.println("Player 2 score: " + ((Ship) gameObjectController.getSecond().getModel()).getPlayer().getScore());
 
     }
     private void handleCollisions(ArrayList<GameCollider> gameColliderArrayList){
@@ -66,5 +63,14 @@ public class GameManager {
             gameColliders.add(gameObjectModelViewTuple.getModel().getCollider());
         }
         return gameColliders;
+    }
+
+    public void save() throws IOException {
+        SaveDataVisitor saveDataVisitor = new SaveDataVisitor();
+        for (ModelViewTuple gameObjectModelViewTuple : gameObjectController.getModelViewTuples()) {
+            gameObjectModelViewTuple.accept(saveDataVisitor);
+        }
+        saveDataVisitor.save();
+        System.exit(0);
     }
 }

@@ -18,7 +18,6 @@ public class Ship extends GameObject{
         Bullet returningBullet = new Bullet(this.position,this.direction,400, new DimensionTuple(15,15),player);
         for (int i = 1; i < 5; i++) {
             if (!(player.getScore() > i * 5000)) {
-                System.out.println("Score: " + player.getScore());
                  returningBullet =  new Bullet(this.position,this.direction,400, new DimensionTuple(i*10,i*10),player);
                  break;
             }else{

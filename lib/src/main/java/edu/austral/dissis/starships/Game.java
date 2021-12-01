@@ -2,6 +2,7 @@ package edu.austral.dissis.starships;
 
 import edu.austral.dissis.starships.config.Config;
 import edu.austral.dissis.starships.controller.GameObjectController;
+import edu.austral.dissis.starships.controller.MyGameManager;
 import edu.austral.dissis.starships.dataStructure.ShipModelViewTuple;
 import edu.austral.dissis.starships.file.ImageLoader;
 import edu.austral.dissis.starships.game.*;
@@ -129,13 +130,13 @@ class GameManager {
 
  class MainTimer extends GameTimer {
 
-    edu.austral.dissis.starships.controller.GameManager gameController;
+    MyGameManager gameController;
     KeyTracker keyTracker;
     ArrayList<Player> players;
      VBox scoreLabels;
     boolean isPaused = false;
      public MainTimer(Pane pane, GameObjectController gameObjectController, KeyTracker keyTracker,ArrayList<Player> players) {
-        gameController = new edu.austral.dissis.starships.controller.GameManager(pane, gameObjectController);
+        gameController = new MyGameManager(pane, gameObjectController);
         this.keyTracker = keyTracker;
         this.players = players;
         scoreLabels = new VBox();
@@ -157,15 +158,17 @@ class GameManager {
 //        }
         if (keyTracker.getKeySet().contains(KeyCode.P)){
             isPaused = !isPaused;
-            if (keyTracker.getKeySet().contains(KeyCode.V)){
-                System.out.println("QUEEEE");
-            }
             keyTracker.getKeySet().remove(KeyCode.P);
         }
+
         if (!isPaused) {
             gameController.update(secondsSinceLastFrame, keyTracker);
         }else if (keyTracker.getKeySet().contains(KeyCode.V)) {
-            System.out.println("QUEEEE");
+            try {
+                gameController.save();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
      }
 }

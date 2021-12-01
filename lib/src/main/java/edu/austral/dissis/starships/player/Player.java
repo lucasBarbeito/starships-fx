@@ -8,25 +8,17 @@ public class Player{
     private final Map<String, String> playerConfiguration;
     private int currentLives;
     private int score;
-    private final int spaceshipNumber;
-//    private boolean isAlive;
+    private String spaceShipImagePath;
 
-    public Player(Map<String, String> playerConfiguration, int currentLives, int score) {
+    public Player(Map<String, String> playerConfiguration, int currentLives, int score, String spaceShipImagePath) {
         this.playerConfiguration = playerConfiguration;
         this.currentLives = currentLives;
         this.score = score;
-        this.spaceshipNumber = Integer.parseInt(playerConfiguration.get("spaceshipNumber"));
+        this.spaceShipImagePath = spaceShipImagePath;
     }
 
     public Player(Map<String, String> playerConfiguration) {
-        this(playerConfiguration, Integer.parseInt(playerConfiguration.get("startingLives")), 0);
-    }
-
-    public void setCurrentLives(int currentLives) {
-        this.currentLives = currentLives;
-    }
-
-    public void setIsAlive(boolean alive) {
+        this(playerConfiguration, Integer.parseInt(playerConfiguration.get("startingLives")), 0,playerConfiguration.get("spaceShipImagePath"));
     }
 
     public void addScore(int score) {
@@ -44,8 +36,8 @@ public class Player{
         return score;
     }
 
-    public int getSpaceshipNumber() {
-        return spaceshipNumber;
+    public String getSpaceShipImagePath() {
+        return spaceShipImagePath;
     }
 
     public String getMoveForwardKey() {
