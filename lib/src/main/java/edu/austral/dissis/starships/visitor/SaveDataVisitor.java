@@ -28,16 +28,20 @@ public class SaveDataVisitor implements Visitor{
         shipJsonObject.put("speed", shipModelViewTuple.getModel().getSpeed());
         shipJsonObject.put("width", shipModelViewTuple.getModel().getDimension().getWidth());
         shipJsonObject.put("height", shipModelViewTuple.getModel().getDimension().getHeight());
+        shipJsonObject.put("playerId", ((Ship) shipModelViewTuple.getModel()).getPlayer().getId());
+
 
         JSONObject playerJsonObject = new JSONObject();
-        playerJsonObject.put("playerMoveFoward", ((Ship) shipModelViewTuple.getModel()).getPlayer().getMoveForwardKey());
-        playerJsonObject.put("playerMoveBackward", ((Ship) shipModelViewTuple.getModel()).getPlayer().getMoveBackwardKey());
-        playerJsonObject.put("playerRotateRightKey", ((Ship) shipModelViewTuple.getModel()).getPlayer().getRotateRightKey());
-        playerJsonObject.put("playerRotateLeftKey", ((Ship) shipModelViewTuple.getModel()).getPlayer().getRotateLeftKey());
-        playerJsonObject.put("playerShootKey", ((Ship) shipModelViewTuple.getModel()).getPlayer().getShootKey());
+        playerJsonObject.put("modelType", ((Ship) shipModelViewTuple.getModel()).getPlayer().getClass().getSimpleName());
+        playerJsonObject.put("moveForwardKey", ((Ship) shipModelViewTuple.getModel()).getPlayer().getMoveForwardKey());
+        playerJsonObject.put("moveBackwardKey", ((Ship) shipModelViewTuple.getModel()).getPlayer().getMoveBackwardKey());
+        playerJsonObject.put("rotateRightKey", ((Ship) shipModelViewTuple.getModel()).getPlayer().getRotateRightKey());
+        playerJsonObject.put("rotateLeftKey", ((Ship) shipModelViewTuple.getModel()).getPlayer().getRotateLeftKey());
+        playerJsonObject.put("shootKey", ((Ship) shipModelViewTuple.getModel()).getPlayer().getShootKey());
         playerJsonObject.put("playerCurrentLives", ((Ship) shipModelViewTuple.getModel()).getPlayer().getCurrentLives());
         playerJsonObject.put("playerScore", ((Ship) shipModelViewTuple.getModel()).getPlayer().getScore());
         playerJsonObject.put("spaceShipImagePath", ((Ship) shipModelViewTuple.getModel()).getPlayer().getSpaceShipImagePath());
+        playerJsonObject.put("playerId", ((Ship) shipModelViewTuple.getModel()).getPlayer().getId());
 
         data.put(shipJsonObject);
         data.put(playerJsonObject);
@@ -70,7 +74,7 @@ public class SaveDataVisitor implements Visitor{
         bulletJsonObject.put("speed", bulletModelViewTuple.getModel().getSpeed());
         bulletJsonObject.put("width", bulletModelViewTuple.getModel().getDimension().getWidth());
         bulletJsonObject.put("height", bulletModelViewTuple.getModel().getDimension().getHeight());
-        bulletJsonObject.put("playerId", ((Bullet) bulletModelViewTuple.getModel()).getPlayer().hashCode());
+        bulletJsonObject.put("playerId", ((Bullet) bulletModelViewTuple.getModel()).getPlayer().getId());
 
         data.put(bulletJsonObject);
     }

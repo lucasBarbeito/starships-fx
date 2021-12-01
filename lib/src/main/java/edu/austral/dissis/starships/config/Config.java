@@ -31,7 +31,7 @@ public class Config {
                         { "rotateLeftKey", jsonObject.getString("rotateLeftKey") },
                         { "shootKey", jsonObject.getString("shootKey") },
                         { "startingLives", String.valueOf(jsonObject.getInt("startingLives"))},
-                        { "spaceshipNumber", String.valueOf(jsonObject.getInt("spaceshipNumber"))},
+                        { "playerId", String.valueOf(jsonObject.getInt("playerId"))},
                         { "spaceShipImagePath", jsonObject.getString("spaceShipImagePath")}
                 }).collect(Collectors.toMap(data -> data[0], data -> data[1])));
             }
@@ -44,7 +44,7 @@ public class Config {
                     { "rotateLeftKey", "LEFT" },
                     { "shootKey", "SPACE" },
                     { "lives", "3" },
-                    { "spaceshipNumber", "1" }
+                    { "playerId", "1" }
             }).collect(Collectors.toMap(data -> data[0], data -> data[1])));
         }
 

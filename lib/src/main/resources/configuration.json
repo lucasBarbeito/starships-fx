@@ -7,7 +7,7 @@
 		"shootKey": "SPACE",
 		"changeWeapon": "E",
 		"startingLives": 2,
-		"spaceshipNumber": 1,
+		"playerId": 1,
 		"spaceShipImagePath": "ship_1.png"
 	},
 	{
@@ -18,7 +18,7 @@
 		"shootKey": "U",
 		"changeWeapon": "O",
 		"startingLives": 2,
-		"spaceshipNumber": "2",
+		"playerId": "2",
 		"spaceShipImagePath": "ship_2.png"
 	}
 ]

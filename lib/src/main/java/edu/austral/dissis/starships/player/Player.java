@@ -9,16 +9,23 @@ public class Player{
     private int currentLives;
     private int score;
     private String spaceShipImagePath;
+    private int id;
 
-    public Player(Map<String, String> playerConfiguration, int currentLives, int score, String spaceShipImagePath) {
+    public Player(Map<String, String> playerConfiguration, int currentLives, int score, String spaceShipImagePath, int id) {
         this.playerConfiguration = playerConfiguration;
         this.currentLives = currentLives;
         this.score = score;
         this.spaceShipImagePath = spaceShipImagePath;
+        this.id = id;
     }
 
     public Player(Map<String, String> playerConfiguration) {
-        this(playerConfiguration, Integer.parseInt(playerConfiguration.get("startingLives")), 0,playerConfiguration.get("spaceShipImagePath"));
+        this(playerConfiguration, Integer.parseInt(playerConfiguration.get("startingLives")),
+                0,playerConfiguration.get("spaceShipImagePath"), Integer.parseInt(playerConfiguration.get("playerId")));
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void addScore(int score) {
