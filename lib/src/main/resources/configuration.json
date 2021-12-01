@@ -1,22 +1,24 @@
 [
 	{
 		"moveForwardKey": "W",
-		"moveBackKey": "S",
+		"moveBackwardKey": "S",
 		"rotateRightKey": "D",
 		"rotateLeftKey": "A",
-		"shootKey": "Q",
+		"shootKey": "SPACE",
 		"changeWeapon": "E",
-		"startingLives": 3,
-		"spaceshipNumber": 1
+		"startingLives": 2,
+		"spaceshipNumber": 1,
+		"spaceShipImagePath": "ship_1.png"
 	},
 	{
 		"moveForwardKey": "I",
-		"moveBackKey": "K",
-		"rotateRightKey": "J",
-		"rotateLeftKey": "L",
+		"moveBackwardKey": "K",
+		"rotateRightKey": "L",
+		"rotateLeftKey": "J",
 		"shootKey": "U",
 		"changeWeapon": "O",
-		"startingLives": 3,
-		"spaceshipNumber": 2
+		"startingLives": 2,
+		"spaceshipNumber": "2",
+		"spaceShipImagePath": "ship_2.png"
 	}
 ]

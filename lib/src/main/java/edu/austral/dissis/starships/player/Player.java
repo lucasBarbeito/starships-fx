@@ -1,6 +1,5 @@
 package edu.austral.dissis.starships.player;
 
-import edu.austral.dissis.starships.controller.ShipController;
 import edu.austral.dissis.starships.model.Ship;
 
 import java.util.Map;
@@ -10,6 +9,7 @@ public class Player{
     private int currentLives;
     private int score;
     private final int spaceshipNumber;
+//    private boolean isAlive;
 
     public Player(Map<String, String> playerConfiguration, int currentLives, int score) {
         this.playerConfiguration = playerConfiguration;
@@ -22,6 +22,31 @@ public class Player{
         this(playerConfiguration, Integer.parseInt(playerConfiguration.get("startingLives")), 0);
     }
 
+    public void setCurrentLives(int currentLives) {
+        this.currentLives = currentLives;
+    }
+
+    public void setIsAlive(boolean alive) {
+    }
+
+    public void addScore(int score) {
+        this.score += score;
+    }
+
+    public int getCurrentLives() {
+        return currentLives;
+    }
+    public void restLife(){
+        currentLives--;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getSpaceshipNumber() {
+        return spaceshipNumber;
+    }
 
     public String getMoveForwardKey() {
         return playerConfiguration.get("moveForwardKey");

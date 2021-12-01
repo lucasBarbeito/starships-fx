@@ -30,6 +30,7 @@ public class BulletCollider implements GameCollider {
     @Override
     public void handleCollisionWith(AsteroidCollider asteroidCollider) {
         bullet.setAlive(false);
+        bullet.getPlayer().addScore((int) bullet.getDamage());
     }
 
     @Override

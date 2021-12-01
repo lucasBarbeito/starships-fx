@@ -26,19 +26,20 @@ public class Config {
                 JSONObject jsonObject = configuration.getJSONObject(i);
                 result.add(Stream.of(new String[][] {
                         { "moveForwardKey", jsonObject.getString("moveForwardKey") },
-                        { "moveBackKey", jsonObject.getString("moveBackKey") },
+                        { "moveBackwardKey", jsonObject.getString("moveBackwardKey") },
                         { "rotateRightKey", jsonObject.getString("rotateRightKey") },
                         { "rotateLeftKey", jsonObject.getString("rotateLeftKey") },
                         { "shootKey", jsonObject.getString("shootKey") },
                         { "startingLives", String.valueOf(jsonObject.getInt("startingLives"))},
-                        { "spaceshipNumber", String.valueOf(jsonObject.getInt("spaceshipNumber"))}
+                        { "spaceshipNumber", String.valueOf(jsonObject.getInt("spaceshipNumber"))},
+                        { "spaceShipImagePath", jsonObject.getString("spaceShipImagePath")}
                 }).collect(Collectors.toMap(data -> data[0], data -> data[1])));
             }
         } catch (IOException e) {
             e.printStackTrace();
             result.add(Stream.of(new String[][] {
                     { "moveForwardKey", "UP" },
-                    { "moveForwardKey", "BACK" },
+                    { "moveBackwardKey", "BACK" },
                     { "rotateRightKey", "RIGHT" },
                     { "rotateLeftKey", "LEFT" },
                     { "shootKey", "SPACE" },

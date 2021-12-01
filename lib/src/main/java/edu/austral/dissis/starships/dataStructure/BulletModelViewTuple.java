@@ -1,6 +1,6 @@
 package edu.austral.dissis.starships.dataStructure;
 
-import edu.austral.dissis.starships.controller.Visitor;
+import edu.austral.dissis.starships.visitor.Visitor;
 import edu.austral.dissis.starships.model.Bullet;
 import edu.austral.dissis.starships.view.BulletView;
 

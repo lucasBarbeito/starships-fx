@@ -1,6 +1,6 @@
 package edu.austral.dissis.starships.dataStructure;
 
-import edu.austral.dissis.starships.controller.Visitor;
+import edu.austral.dissis.starships.visitor.Visitor;
 import edu.austral.dissis.starships.model.Ship;
 import edu.austral.dissis.starships.view.ShipView;
 
@@ -13,4 +13,6 @@ public class ShipModelViewTuple extends ModelViewTuple{
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
+
+
 }

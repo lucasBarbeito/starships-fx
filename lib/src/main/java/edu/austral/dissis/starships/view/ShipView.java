@@ -8,10 +8,10 @@ import java.io.IOException;
 public class ShipView extends GameObjectView{
 
 
-    public ShipView(double x, double y, double angle,double width, double height) throws IOException {
+    public ShipView(double x, double y, double angle,double width, double height, String imagePath) throws IOException {
         super(x, y, angle, width, height);
         ImageLoader imageLoader = new ImageLoader();
-        imageView = new ImageView(imageLoader.loadFromResources("starship.png", width, height));
+        imageView = new ImageView(imageLoader.loadFromResources(imagePath, width, height));
         imageView.setLayoutX(x);
         imageView.setLayoutY(y);
         imageView.setRotate(angle);

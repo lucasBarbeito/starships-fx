@@ -1,5 +1,6 @@
 package edu.austral.dissis.starships.collision;
 
+import edu.austral.dissis.starships.dataStructure.Vector2;
 import edu.austral.dissis.starships.model.GameObject;
 import edu.austral.dissis.starships.model.Ship;
 import javafx.scene.shape.Rectangle;
@@ -37,6 +38,7 @@ public class ShipCollider implements GameCollider{
     @Override
     public void handleCollisionWith(AsteroidCollider asteroidCollider) {
         ship.setAlive(false);
+//        ship.setAlive(false);
     }
 
     @Override

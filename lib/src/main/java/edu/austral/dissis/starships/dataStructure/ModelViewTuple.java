@@ -1,8 +1,8 @@
 package edu.austral.dissis.starships.dataStructure;
 
-import edu.austral.dissis.starships.controller.Visitor;
 import edu.austral.dissis.starships.model.GameObject;
 import edu.austral.dissis.starships.view.GameObjectView;
+import edu.austral.dissis.starships.visitor.Visitable;
 
 public abstract class ModelViewTuple implements Visitable {
 

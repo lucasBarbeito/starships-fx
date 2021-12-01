@@ -1,7 +1,6 @@
 package edu.austral.dissis.starships.model;
 
 import edu.austral.dissis.starships.collision.GameCollider;
-import edu.austral.dissis.starships.controller.Visitor;
 import edu.austral.dissis.starships.dataStructure.DimensionTuple;
 import edu.austral.dissis.starships.dataStructure.Vector2;
 
